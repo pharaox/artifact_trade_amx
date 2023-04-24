@@ -1,0 +1,8 @@
+This is a [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2962238514]Search & Trade Artifacts[/url] compatibility patch for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2886417277]Artifact Manager[/url]. It adds the 2 new buttons [b]Buy Artifacts[/b] and [b]Sell Artifacts[/b] introduced by the Search & Trade Artifacts mod to the changed [b]Inventory[/b] window of the Artifact Manager mod. 
+
+Load order:
+[list]
+  [*] Search & Trade Artifacts
+  [*] Artifact Manager
+  [*] Search & Trade Artifacts Artifact Manager Compatibility (this mod)
+[/list]
