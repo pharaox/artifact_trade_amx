@@ -28,6 +28,7 @@ window = {
 		name = _hide
 		using = Animation_FadeOut_Standard
 		on_finish = "[AccessLocalPlayerCachedData.AccessNewArtifacts.ClearNewArtifactsOfCategory( 'inventory' )]"
+		on_finish = "[AccessLocalPlayerCachedData.AccessNewArtifacts.ClearNewArtifactsOfCategory( 'court' )]"
 	}
 
 	## covers the whole window
@@ -68,6 +69,7 @@ window = {
 
 				max_width = 580
 				min_width = 580
+				margin_bottom = 265
 
 				text_label_center = {
 					layoutpolicy_horizontal = expanding
@@ -87,56 +89,34 @@ window = {
 					button_tab = {
 						name = "personal_artifacts_tab"
 						size = { 120 50 }
-						min_width = 160
+						min_width = 140
 						layoutpolicy_horizontal = expanding
 
 						onclick = "[GetVariableSystem.Set( 'artifacts_active_tab', 'personal_artifacts_tab' )]"
 						down = "[GetVariableSystem.HasValue( 'artifacts_active_tab', 'personal_artifacts_tab' )]"
 
-						hbox = {
-
-							expand = {}
-
-							text_single = {
-								margin_left = 5
-								text = "PERSONAL_ARTIFACTS_TAB_TITLE"
-								default_format = "#high"
-							}
-
-							expand = {}
-
-						}
+						text = "PERSONAL_ARTIFACTS_TAB_TITLE"
+						default_format = "#high"
 					}
 
 					button_tab = {
 						name = "court_artifacts_tab"
 						size = { 120 50 }
-						min_width = 120
+						#min_width = 120
 						layoutpolicy_horizontal = expanding
 
 						visible = "[Character.HasRoyalCourt]"
 						onclick = "[GetVariableSystem.Set( 'artifacts_active_tab', 'court_artifacts_tab' )]"
 						down = "[GetVariableSystem.HasValue( 'artifacts_active_tab', 'court_artifacts_tab' )]"
 
-						hbox = {
-
-							expand = {}
-
-							text_single = {
-								margin_left = 5
-								text = "COURT_ARTIFACTS_TAB_TITLE"
-								default_format = "#high"
-							}
-
-							expand = {}
-
-						}
+						text = "COURT_ARTIFACTS_TAB_TITLE"
+						default_format = "#high"
 					}
 
 					button_tab = {
 						name = "vanity_artifacts_tab"
 						size = { 120 50 }
-						min_width = 120
+						#min_width = 120
 						layoutpolicy_horizontal = expanding
 
 						datacontext = "[GetScriptedGui('AMX_VanityArtifactsAllowed')]"
@@ -144,23 +124,14 @@ window = {
 						onclick = "[GetVariableSystem.Set( 'artifacts_active_tab', 'vanity_artifacts_tab' )]"
 						down = "[GetVariableSystem.HasValue( 'artifacts_active_tab', 'vanity_artifacts_tab' )]"
 
-						hbox = {
-							expand = {}
-
-							text_single = {
-								margin_left = 5
-								text = "VANITY_ARTIFACTS_TAB_TITLE"
-								default_format = "#high"
-							}
-
-							expand = {}
-						}
+						text = "VANITY_ARTIFACTS_TAB_TITLE"
+						default_format = "#high"
 					}
 
 					button_tab = {
 						name = "library_artifacts_tab"
 						size = { 80 50 }
-						min_width = 80
+						#min_width = 80
 						layoutpolicy_horizontal = expanding
 
 						datacontext = "[GetScriptedGui('AMX_LibraryArtifactsAllowed')]"
@@ -168,23 +139,14 @@ window = {
 						onclick = "[GetVariableSystem.Set( 'artifacts_active_tab', 'library_artifacts_tab' )]"
 						down = "[GetVariableSystem.HasValue( 'artifacts_active_tab', 'library_artifacts_tab' )]"
 
-						hbox = {
-							expand = {}
-
-							text_single = {
-								margin_left = 5
-								text = "LIBRARY_ARTIFACTS_TAB_TITLE"
-								default_format = "#high"
-							}
-
-							expand = {}
-						}
+						text = "LIBRARY_ARTIFACTS_TAB_TITLE"
+						default_format = "#high"
 					}
 
 					button_tab = {
 						name = "armory_artifacts_tab"
 						size = { 80 50 }
-						min_width = 80
+						#min_width = 80
 						layoutpolicy_horizontal = expanding
 
 						datacontext = "[GetScriptedGui('AMX_ArmoryArtifactsAllowed')]"
@@ -192,17 +154,8 @@ window = {
 						onclick = "[GetVariableSystem.Set( 'artifacts_active_tab', 'armory_artifacts_tab' )]"
 						down = "[GetVariableSystem.HasValue( 'artifacts_active_tab', 'armory_artifacts_tab' )]"
 
-						hbox = {
-							expand = {}
-
-							text_single = {
-								margin_left = 5
-								text = "ARMORY_ARTIFACTS_TAB_TITLE"
-								default_format = "#high"
-							}
-
-							expand = {}
-						}
+						text = "ARMORY_ARTIFACTS_TAB_TITLE"
+						default_format = "#high"
 					}
 
 				}
@@ -458,7 +411,7 @@ window = {
 					widget = {
 
 						background = {
-							#texture = "gfx/interface/icons/inventory/vanity_room_background.dds"
+							texture = "gfx/interface/icons/inventory/vanity_room_background.dds"
 							#fittype = centercrop
 							fittype = fill
 							alpha = 0.6
@@ -597,7 +550,7 @@ window = {
 
 					widget = {
 						background = {
-							#texture = "gfx/interface/icons/inventory/artifacts_library_background.dds"
+							texture = "gfx/interface/icons/inventory/artifacts_library_background.dds"
 							#fittype = centercrop
 							fittype = fill
 							alpha = 0.6
@@ -723,7 +676,7 @@ window = {
 
 					widget = {
 						background = {
-							#texture = "gfx/interface/icons/inventory/armory_extras_background.dds"
+							texture = "gfx/interface/icons/inventory/armory_extras_background.dds"
 							#fittype = centercrop
 							fittype = fill
 							alpha = 0.6
@@ -905,9 +858,9 @@ window = {
 				layoutpolicy_vertical = expanding
 				min_width = 600
 				max_width = 600
-				margin_bottom = 80
-				margin_right = 10
-				margin_left = 10
+				margin_bottom = 350
+				margin_right = 5
+				margin_left = 5
 				parentanchor = top|left
 
 				text_label_center = {
@@ -1065,7 +1018,7 @@ window = {
 							layoutpolicy_horizontal = expanding
 
 							onclick = "[VariableSystem.Toggle( 'artifact_compact_view' )]"
-							tooltip = "Toggle Artifact Compact View"
+							tooltip = "COMPACT_VIEW_OPTION_TT"
 
 							blockoverride "checkbox"
 							{
@@ -1078,26 +1031,32 @@ window = {
 							}
 						}
 
-						button_checkbox_label = {
+						button_standard = {
 							name = "keep_open_on_distro_toggle"
-							layoutpolicy_horizontal = expanding
+							size = { 40 30 }
+							align = center|vcenter|nobaseline
 
-							onclick = "[VariableSystem.Toggle( 'keep_open_on_distro' )]"
-							tooltip = "Close inventory window when distributing artifact"
+							datacontext = "[GetScriptedGui('am_toggle_pin_inventory_window')]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 
-							blockoverride "checkbox"
-							{
-								checked = "[VariableSystem.Exists( 'keep_open_on_distro' )]"
+							button_icon_highlight = {
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								size = { 25 25 }
+								texture = "gfx/interface/icons/flat_icons/plus.dds"
+								parentanchor = center|vcenter
+								tooltip = "KEEP_OPEN_ON_DISTRO_OPTION_TT"
 							}
 
-							blockoverride "text"
-							{
-								text = "KEEP_OPEN_ON_DISTRO_OPTION"
+							button_icon_highlight = {
+								visible = "[Not(ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End))]"
+								size = { 25 25 }
+								texture = "gfx/interface/icons/flat_icons/minus.dds"
+								parentanchor = center|vcenter
+								tooltip = "CLOSE_ON_DISTRO_OPTION_TT"
 							}
 						}
 
-						expand = {}
-
+						#expand = {}
 					}
 
 					hbox = { # claims sorting
@@ -1277,7 +1236,9 @@ window = {
 										{
 											onclick = "[InventoryView.OnClickArtifact( Artifact.Self )]"
 											#enable interact for court artifact only for character with a royal court
-											enabled = "[And( InventoryView.GetCharacter.IsLocalPlayer, Or( Artifact.IsInventoryArtifact, Character.HasRoyalCourt ) )]"
+											datacontext = "[GetScriptedGui('AM_can_interact_with_artifact')]"
+											enabled = "[And( And( InventoryView.GetCharacter.IsLocalPlayer, Or( Artifact.IsInventoryArtifact, Character.HasRoyalCourt ) ), GetScriptedGui('AM_can_interact_with_artifact').IsShown(GuiScope.SetRoot(Character.MakeScope).AddScope('target', Artifact.MakeScope).End))]"
+											#enabled = "[And( InventoryView.GetCharacter.IsLocalPlayer, Or( Artifact.IsInventoryArtifact, Character.HasRoyalCourt ) )]"
 											down = "[Inventory.IsEquipped( Artifact.Self )]"
 										}
 
@@ -1330,7 +1291,8 @@ window = {
 										{
 											onclick = "[InventoryView.OnClickArtifact( Artifact.Self )]"
 											#enable interact for court artifact only for character with a royal court
-											enabled = "[And( InventoryView.GetCharacter.IsLocalPlayer, Or( Artifact.IsInventoryArtifact, Character.HasRoyalCourt ) )]"
+											datacontext = "[GetScriptedGui('AM_can_interact_with_artifact')]"
+											enabled = "[And( And( InventoryView.GetCharacter.IsLocalPlayer, Or( Artifact.IsInventoryArtifact, Character.HasRoyalCourt ) ), GetScriptedGui('AM_can_interact_with_artifact').IsShown(GuiScope.SetRoot(Character.MakeScope).AddScope('target', Artifact.MakeScope).End))]"
 											down = "[Inventory.IsEquipped( Artifact.Self )]"
 										}
 
@@ -1461,13 +1423,14 @@ window = {
 								}
 							}
 
-							# STA
+							### Search and Trade Artifacts compatibility (STA)
 							hbox = {
-								datacontext = "[GetScriptedGui('at_artifacts_window_init_gui')]"
-								visible = "[And(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('sell')).End), Character.IsLocalPlayer)]"
 								spacing = 10
+								visible = "[GetScriptedGui('AM_artifact_trader_detected').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 
 								button_standard = {
+									datacontext = "[GetScriptedGui('at_artifacts_window_init_gui')]"
+									visible = "[And(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('sell')).End), Character.IsLocalPlayer)]"
 									text = "AT_SELL_ARTIFACTS"
 									enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('sell')).End)]"
 									tooltip = "AT_SELL_ARTIFACTS_TOOLTIP"
@@ -1479,6 +1442,8 @@ window = {
 								}
 
 								button_standard = {
+									datacontext = "[GetScriptedGui('at_artifacts_window_init_gui')]"
+									visible = "[And(ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('sell')).End), Character.IsLocalPlayer)]"
 									text = "AT_BUY_ARTIFACTS"
 									enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('flavor', MakeScopeFlag('buy')).End)]"
 									tooltip = "AT_BUY_ARTIFACTS_TOOLTIP"
@@ -1615,7 +1580,12 @@ window = {
 
 							hbox = {
 								layoutpolicy_horizontal = expanding
-								layoutpolicy_vertical = expanding
+								#layoutpolicy_vertical = expanding
+								margin_bottom = 20
+
+								background = {
+									using = Background_Area
+								}
 
 								vbox = {
 									layoutpolicy_horizontal = expanding
@@ -1623,6 +1593,7 @@ window = {
 									spacing = 5
 									margin_top = 20
 									margin_left = 20
+
 
 									hbox = {
 										layoutpolicy_horizontal = expanding
@@ -1710,119 +1681,379 @@ window = {
 
 								vbox = {
 									layoutpolicy_horizontal = expanding
-									layoutpolicy_vertical = expanding
-									spacing = 5
-									margin_top = 15
+									#layoutpolicy_vertical = expanding
+									spacing = 8
+									margin_top = 35
 
-									hbox = {
-										spacing = 5
-										layoutpolicy_horizontal = expanding
+									button_standard = {
+										size = { 180 35 }
+										align = center|vcenter|nobaseline
+										visible = "[Artifact.GetOwner.IsLocalPlayer]"
+										enabled = "[GetScriptedGui('AM_has_repairables').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+										onclick = "[GetVariableSystem.Set('repair_all_artifacts', 'yes')]"
 
 										button_round = {
-											name = "repair_all"
 											size = { 35 35 }
-											visible = "[Artifact.GetOwner.IsLocalPlayer]"
-											enabled = "[GetScriptedGui('AM_has_repairables').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 											button_icon_highlight = {
 												size = { 30 30 }
-												parentanchor = center
+												parentanchor = left|vcenter
 												texture = "gfx/interface/icons/flat_icons/reforge.dds"
 											}
-											tooltip = "REPAIR_ALL_ARTIFACTS"
-											onclick = "[GetVariableSystem.Set('repair_all_artifacts', 'yes')]"
 										}
-										text_single = {
-											text = "REPAIR_ALL_ARTIFACTS_BRIEF"
-										}
-										expand = {}
+
+										text = "REPAIR_ALL_ARTIFACTS_BRIEF"
+										tooltip = "REPAIR_ALL_ARTIFACTS"
 									}
 
-									hbox = {
-										spacing = 5
-										layoutpolicy_horizontal = expanding
+									button_standard = {
+										size = { 180 35 }
+										align = center|vcenter|nobaseline
+										visible = "[Artifact.GetOwner.IsLocalPlayer]"
+										enabled = "[GetScriptedGui('AM_has_selected_repairables').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+										onclick = "[GetVariableSystem.Set('repair_selected_artifacts', 'yes')]"
 
 										button_round = {
-											name = "repair_selected"
 											size = { 35 35 }
-											visible = "[Artifact.GetOwner.IsLocalPlayer]"
-											enabled = "[GetScriptedGui('AM_has_selected_repairables').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-
 											button_icon_highlight = {
 												size = { 30 30 }
-												parentanchor = center
+												parentanchor = left|vcenter
 												texture = "gfx/interface/icons/flat_icons/dots.dds"
 											}
 											button_icon_highlight = {
 												size = { 25 25 }
 												position = { 5 3 }
-												parentanchor = topcenter
+												parentanchor = left|vcenter
 												texture = "gfx/interface/icons/flat_icons/reforge.dds"
 											}
-											tooltip = "REPAIR_SELECTED_ARTIFACTS"
-											onclick = "[GetVariableSystem.Set('repair_selected_artifacts', 'yes')]"
 										}
-										text_single = {
-											text = "REPAIR_SELECTED_ARTIFACTS_BRIEF"
-										}
-										expand = {}
+
+										text = "REPAIR_SELECTED_ARTIFACTS_BRIEF"
+										tooltip = "REPAIR_SELECTED_ARTIFACTS"
 									}
 
-									hbox = {
-										spacing = 5
-										layoutpolicy_horizontal = expanding
+									button_standard = {
+										size = { 180 35 }
+										align = center|vcenter|nobaseline
+										visible = "[Artifact.GetOwner.IsLocalPlayer]"
+										enabled = "[GetScriptedGui('AM_has_unused_artifacts').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+										onclick = "[GetVariableSystem.Set('auction_unused_artifact', 'yes')]"
 
 										button_round = {
-											name = "sell_all_unused"
 											size = { 35 35 }
-											visible = "[Artifact.GetOwner.IsLocalPlayer]"
-											enabled = "[GetScriptedGui('AM_has_unused_artifacts').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 											button_icon_highlight = {
 												size = { 30 30 }
-												parentanchor = center
+												parentanchor = left|vcenter
 												texture = "gfx/interface/icons/flat_icons/prison_ransom.dds"
 											}
-											tooltip = "SELL_ALL_UNUSED_ARTIFACTS"
-											onclick = "[GetVariableSystem.Set('auction_unused_artifact', 'yes')]"
 										}
-										text_single = {
-											text = "SELL_ALL_UNUSED_ARTIFACTS_BRIEF"
-										}
-										expand = {}
+
+										text = "SELL_ALL_UNUSED_ARTIFACTS_BRIEF"
+										tooltip = "SELL_ALL_UNUSED_ARTIFACTS"
 									}
 
-									hbox = {
-										spacing = 5
-										layoutpolicy_horizontal = expanding
+									button_standard = {
+										size = { 180 35 }
+										align = center|vcenter|nobaseline
+										visible = "[Artifact.GetOwner.IsLocalPlayer]"
+										enabled = "[GetScriptedGui('AM_has_selected_unused_artifacts').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+										onclick = "[GetVariableSystem.Set('auction_selected_unused_artifact', 'yes')]"
 
 										button_round = {
-											name = "sell_selected_unused"
 											size = { 35 35 }
-											visible = "[Artifact.GetOwner.IsLocalPlayer]"
-											enabled = "[GetScriptedGui('AM_has_selected_unused_artifacts').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-
 											button_icon_highlight = {
 												size = { 30 30 }
-												parentanchor = center
+												parentanchor = left|vcenter
 												texture = "gfx/interface/icons/flat_icons/dots.dds"
 											}
 											button_icon_highlight = {
 												size = { 25 25 }
-												position = { 0 -5 }
-												parentanchor = center
+												position = { 5 3 }
+												parentanchor = left|vcenter
 												texture = "gfx/interface/icons/flat_icons/prison_ransom.dds"
 											}
-											tooltip = "SELL_SELECTED_UNUSED_ARTIFACTS"
-											onclick = "[GetVariableSystem.Set('auction_selected_unused_artifact', 'yes')]"
 										}
-										text_single = {
-											text = "SELL_SELECTED_UNUSED_ARTIFACTS_BRIEF"
-										}
-										expand = {}
+
+										text = "SELL_SELECTED_UNUSED_ARTIFACTS_BRIEF"
+										tooltip = "SELL_SELECTED_UNUSED_ARTIFACTS"
 									}
 
-									expand = {}
+									#expand = {}
 								}
 							}
+
+							vbox = {
+								layoutpolicy_horizontal = expanding
+								#layoutpolicy_vertical = expanding
+								margin_bottom = 20
+								margin_top = 10
+
+								background = {
+									using = Background_Area
+								}
+
+								text_label_center = {
+									text = "ARTIFACT_AUTOMATION_OPTIONS"
+									tooltip = "ARTIFACT_AUTOMATION_OPTIONS_TT"
+								}
+
+								hbox = {
+									spacing = 5
+									margin_bottom = 8
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_period_quarter')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_PERIOD_QUARTER"
+											tooltip = "AUTOMATION_PERIOD_QUARTER_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_period_annual')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_PERIOD_ANNUAL"
+											tooltip = "AUTOMATION_PERIOD_ANNUAL_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_period_3years')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_PERIOD_3YEARS"
+											tooltip = "AUTOMATION_PERIOD_3YEARS_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_period_5years')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_PERIOD_5YEARS"
+											tooltip = "AUTOMATION_PERIOD_5YEARS_TT"
+										}
+
+
+
+								}
+
+								divider_light = {
+									layoutpolicy_horizontal = expanding
+								}
+
+								hbox = {
+									spacing = 5
+
+									# common automation options
+									vbox = {
+										spacing = 5
+
+										text_single = {
+											size = {100 20}
+											align = left
+											text = "OPTION_COMMON"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_manual_common')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_NONE"
+											tooltip = "AUTOMATION_OPTION_NONE_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_repair_common')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_REPAIR"
+											tooltip = "AUTOMATION_OPTION_REPAIR_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_vendor_common')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_VENDOR"
+											tooltip = "AUTOMATION_OPTION_VENDOR_TT"
+										}
+
+									} # common automation
+
+									# masterwork automation options
+									vbox = {
+										spacing = 5
+
+										text_single = {
+											size = {100 20}
+											align = left
+											text = "OPTION_MASTERWORK"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_manual_masterwork')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_NONE"
+											tooltip = "AUTOMATION_OPTION_NONE_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_repair_masterwork')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_REPAIR"
+											tooltip = "AUTOMATION_OPTION_REPAIR_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_vendor_masterwork')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_VENDOR"
+											tooltip = "AUTOMATION_OPTION_VENDOR_TT"
+										}
+
+									} # masterwork automation
+
+									# famed automation options
+									vbox = {
+										spacing = 5
+
+										text_single = {
+											size = {100 20}
+											align = left
+											text = "OPTION_FAMED"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_manual_famed')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_NONE"
+											tooltip = "AUTOMATION_OPTION_NONE_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_repair_famed')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_REPAIR"
+											tooltip = "AUTOMATION_OPTION_REPAIR_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_vendor_famed')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_VENDOR"
+											tooltip = "AUTOMATION_OPTION_VENDOR_TT"
+										}
+
+									} # famed automation
+
+									# illustrious automation options
+									vbox = {
+										spacing = 5
+
+										text_single = {
+											size = {100 20}
+											align = left
+											text = "OPTION_ILLUSTRIOUS"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_manual_illustrious')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_NONE"
+											tooltip = "AUTOMATION_OPTION_NONE_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_repair_illustrious')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_REPAIR"
+											tooltip = "AUTOMATION_OPTION_REPAIR_TT"
+										}
+
+										button_standard = {
+											size = { 90 35 }
+											align = center|vcenter|nobaseline
+
+											datacontext = "[GetScriptedGui('am_toggle_automation_vendor_illustrious')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+											down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+											text = "AUTOMATION_OPTION_VENDOR"
+											tooltip = "AUTOMATION_OPTION_VENDOR_TT"
+										}
+
+									} # illustrious automation
+								}
+							}
+
+							expand = {}
 						}
 
 						vbox = {
@@ -2071,8 +2302,8 @@ window = {
 										text = "COMBINE_PRIMARY_ITEM_LABEL"
 									}
 
-
 									hbox = {
+										visible = "[GetScriptedGui('AM_has_picked_primary_for_combine_op').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 										datacontext = "[GetPlayer.MakeScope.Var('AM_CAP_artifact_primary').Artifact]"
 										widget = {
 											size = { 80 80 }
@@ -2082,6 +2313,21 @@ window = {
 											tooltipwidget = {
 												artifact_tooltip = {}
 											}
+										}
+									}
+									hbox = {
+										visible = "[Not(GetScriptedGui('AM_has_picked_primary_for_combine_op').IsShown(GuiScope.SetRoot(Character.MakeScope).End))]"
+										background = {
+											using = Background_Area
+										}
+
+										text_single = {
+											size = { 80 80 }
+											margin = {5 5 5 5}
+											multiline = yes
+											max_width = 140
+											align = center
+											text = "COMBINE_MISSING_PRIMARY_ARTIFACT"
 										}
 									}
 								}
@@ -2095,6 +2341,7 @@ window = {
 									}
 
 									hbox = {
+										visible = "[GetScriptedGui('AM_has_picked_secondary_for_combine_op').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 										datacontext = "[GetPlayer.MakeScope.Var('AM_CAP_artifact_secondary').Artifact]"
 										widget = {
 											size = { 80 80 }
@@ -2104,6 +2351,21 @@ window = {
 											tooltipwidget = {
 												artifact_tooltip = {}
 											}
+										}
+									}
+									hbox = {
+										visible = "[Not(GetScriptedGui('AM_has_picked_secondary_for_combine_op').IsShown(GuiScope.SetRoot(Character.MakeScope).End))]"
+										background = {
+											using = Background_Area
+										}
+
+										text_single = {
+											size = { 80 80 }
+											margin = {5 5 5 5}
+											multiline = yes
+											max_width = 140
+											align = center
+											text = "COMBINE_MISSING_SECONDARY_ARTIFACT"
 										}
 									}
 								}
@@ -2134,29 +2396,17 @@ window = {
 							expand = {}
 
 						}
-
 					}
 					# end of the tabs
 
-
-					vbox = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-						parentanchor = top|left
-						min_width = 350
-						spacing = 5
-
-
-					}
-
 				}
 
-				expand = {}
+				#expand = {}
 			}
 			### end of antiquarian area
 
 
-			expand = {}
+			#expand = {}
 
 		}
 		## rest of the window not covered by the banner
@@ -2509,7 +2759,7 @@ types InventoryViewTypes
 			spriteborder = { 20 20 }
 
 			icon =  {
-				texture = "[Illustration.GetTextureForCulture( Artifact.GetCulture )]"
+				texture = "[Illustration.GetTexture( Artifact.GetCulture.MakeScope )]"
 				spriteType = Corneredtiled
 				size = { 100% 15% }
 				color = "[Artifact.GetRarityColor]"
@@ -2518,7 +2768,7 @@ types InventoryViewTypes
 			}
 
 			icon =  {
-				texture = "[Illustration.GetTextureForCulture( Artifact.GetCulture )]"
+				texture = "[Illustration.GetTexture( Artifact.GetCulture.MakeScope )]"
 				spriteType = Corneredtiled
 				size = { 100% 15% }
 				color = "[Artifact.GetRarityColor]"
@@ -2932,7 +3182,7 @@ types InventoryViewTypes
 			spriteborder = { 20 20 }
 
 			icon =  {
-				texture = "[Illustration.GetTextureForCulture( Artifact.GetCulture )]"
+				texture = "[Illustration.GetTexture( Artifact.GetCulture.MakeScope )]"
 				spriteType = Corneredtiled
 				size = { 100% 10% }
 				color = "[Artifact.GetRarityColor]"
@@ -2941,7 +3191,7 @@ types InventoryViewTypes
 			}
 
 			icon =  {
-				texture = "[Illustration.GetTextureForCulture( Artifact.GetCulture )]"
+				texture = "[Illustration.GetTexture( Artifact.GetCulture.MakeScope )]"
 				spriteType = Corneredtiled
 				size = { 100% 10% }
 				color = "[Artifact.GetRarityColor]"

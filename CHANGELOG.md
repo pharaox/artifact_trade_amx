@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.3.1
+
+* Adapted to latest Artifact Manager (for CK3 1.11)
+
 ## Version 0.3.0
 
 * Adapted to CK3 1.11 and latest Artifact Manager (for CK3 1.11)
