@@ -1,7 +1,7 @@
 ﻿AM_artifact_trader_detected = {
 	scope = character
-    is_shown = {
-        exists = global_var:at_artifact_trade_loaded
-    }
+	is_shown = {
+		at_is_loaded = yes
+	}
 }
 
